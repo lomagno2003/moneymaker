@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_j8ZNoOXrEeOPOLDFEeJJFQ" name="Model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_j8ZNoeXrEeOPOLDFEeJJFQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_j-qegOXrEeOPOLDFEeJJFQ" name="StateMachine0">
+    <region xmi:type="uml:Region" xmi:id="_j-yaUOXrEeOPOLDFEeJJFQ" name="Region0">
+      <transition xmi:type="uml:Transition" xmi:id="_dmwEwOXsEeOPOLDFEeJJFQ" name="Transition0" source="_rgUSEOXrEeOPOLDFEeJJFQ"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_pWyZwOXrEeOPOLDFEeJJFQ" name="Initial0"/>
+      <subvertex xmi:type="uml:State" xmi:id="_rgUSEOXrEeOPOLDFEeJJFQ" name="SendingBuyRequest"/>
+      <subvertex xmi:type="uml:State" xmi:id="_Eht6AOXsEeOPOLDFEeJJFQ" name="WaitingForBuyFinish">
+        <region xmi:type="uml:Region" xmi:id="_klNEoOXsEeOPOLDFEeJJFQ" name="Region0"/>
+      </subvertex>
+    </region>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_JojQ8OXsEeOPOLDFEeJJFQ" name="Activity1"/>
+</uml:Model>
