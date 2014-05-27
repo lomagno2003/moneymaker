@@ -1,4 +1,4 @@
-package net.clomagno.moneymaker;
+package net.clomagno.moneymaker.connections;
 
 public interface TradingConnection {
 	public enum CryptocoinType{
