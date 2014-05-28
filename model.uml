@@ -5,13 +5,49 @@
   </packageImport>
   <packagedElement xmi:type="uml:StateMachine" xmi:id="_j-qegOXrEeOPOLDFEeJJFQ" name="StateMachine0">
     <region xmi:type="uml:Region" xmi:id="_j-yaUOXrEeOPOLDFEeJJFQ" name="Region0">
-      <transition xmi:type="uml:Transition" xmi:id="_dmwEwOXsEeOPOLDFEeJJFQ" name="Transition0" source="_rgUSEOXrEeOPOLDFEeJJFQ"/>
-      <subvertex xmi:type="uml:Pseudostate" xmi:id="_pWyZwOXrEeOPOLDFEeJJFQ" name="Initial0"/>
-      <subvertex xmi:type="uml:State" xmi:id="_rgUSEOXrEeOPOLDFEeJJFQ" name="SendingBuyRequest"/>
-      <subvertex xmi:type="uml:State" xmi:id="_Eht6AOXsEeOPOLDFEeJJFQ" name="WaitingForBuyFinish">
-        <region xmi:type="uml:Region" xmi:id="_klNEoOXsEeOPOLDFEeJJFQ" name="Region0"/>
+      <transition xmi:type="uml:Transition" xmi:id="_dmwEwOXsEeOPOLDFEeJJFQ" name="Transition0"/>
+      <transition xmi:type="uml:Transition" xmi:id="_5oEIEOZoEeOeqbx8NusadA" name="BuyFinished" source="_mGDhAOZoEeOeqbx8NusadA" target="_fxB4oOZoEeOeqbx8NusadA"/>
+      <transition xmi:type="uml:Transition" xmi:id="__sfvsOZoEeOeqbx8NusadA" name="SellFinished" source="_gobasOZoEeOeqbx8NusadA" target="_OnouwOZoEeOeqbx8NusadA"/>
+      <transition xmi:type="uml:Transition" xmi:id="_DmAX4OZpEeOeqbx8NusadA" name="ScannFinished" source="_PoOCAOZoEeOeqbx8NusadA" target="_lUndAOZoEeOeqbx8NusadA"/>
+      <subvertex xmi:type="uml:State" xmi:id="_YAtzcOZnEeOeqbx8NusadA" name="Buying">
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_lUndAOZoEeOeqbx8NusadA" name="BuyingEntryPoint" kind="entryPoint"/>
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_mGDhAOZoEeOeqbx8NusadA" name="BuyingExitPoint" kind="exitPoint"/>
+        <region xmi:type="uml:Region" xmi:id="_lUkZsOZoEeOeqbx8NusadA" name="Region0">
+          <transition xmi:type="uml:Transition" xmi:id="_-BIvMOZqEeOeqbx8NusadA" name="BuyStarted" source="_lUndAOZoEeOeqbx8NusadA" target="_uHGw4OZpEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="__k1WkOZqEeOeqbx8NusadA" name="BuyRequestSended" source="_uHGw4OZpEeOeqbx8NusadA" target="_0nIIUOZpEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_ipXeEOZwEeOXab4UXlf1ug" name="WaitFinished" source="_0nIIUOZpEeOeqbx8NusadA" target="_f88UEOZwEeOXab4UXlf1ug"/>
+          <transition xmi:type="uml:Transition" xmi:id="_Njdl4OZxEeOXab4UXlf1ug" name="No" source="_f88UEOZwEeOXab4UXlf1ug" target="_uHGw4OZpEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_OwFKAOZxEeOXab4UXlf1ug" name="Yes" source="_f88UEOZwEeOXab4UXlf1ug" target="_mGDhAOZoEeOeqbx8NusadA"/>
+          <subvertex xmi:type="uml:State" xmi:id="_uHGw4OZpEeOeqbx8NusadA" name="SendingBuyRequest"/>
+          <subvertex xmi:type="uml:State" xmi:id="_0nIIUOZpEeOeqbx8NusadA" name="WaitingBuyConfirm"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_f88UEOZwEeOXab4UXlf1ug" name="BuyConfirmed?" kind="choice"/>
+        </region>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_liTJIOZnEeOeqbx8NusadA" name="Selling">
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_fxB4oOZoEeOeqbx8NusadA" name="SellingEntryPoint" kind="entryPoint"/>
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_gobasOZoEeOeqbx8NusadA" name="SellingExitPoint" kind="exitPoint"/>
+        <region xmi:type="uml:Region" xmi:id="_fw-1UOZoEeOeqbx8NusadA" name="Region0">
+          <transition xmi:type="uml:Transition" xmi:id="_Nob0MOZrEeOeqbx8NusadA" name="SellStarted" kind="local" source="_fxB4oOZoEeOeqbx8NusadA" target="_B9UQ4OZrEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_j_vlsOZxEeOXab4UXlf1ug" name="SellRequestSended" source="_B9UQ4OZrEeOeqbx8NusadA" target="_Eqqn8OZrEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_02NMgOZxEeOXab4UXlf1ug" name="WaitFinished" source="_Eqqn8OZrEeOeqbx8NusadA" target="_eX9d0OZxEeOXab4UXlf1ug"/>
+          <transition xmi:type="uml:Transition" xmi:id="_4kn_AOZxEeOXab4UXlf1ug" name="No" source="_eX9d0OZxEeOXab4UXlf1ug" target="_B9UQ4OZrEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_7xHwMOZxEeOXab4UXlf1ug" name="Yes" source="_eX9d0OZxEeOXab4UXlf1ug" target="_gobasOZoEeOeqbx8NusadA"/>
+          <subvertex xmi:type="uml:State" xmi:id="_B9UQ4OZrEeOeqbx8NusadA" name="SendingSellRequest"/>
+          <subvertex xmi:type="uml:State" xmi:id="_Eqqn8OZrEeOeqbx8NusadA" name="WaitingSellConfirm"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_eX9d0OZxEeOXab4UXlf1ug" name="SellConfirmed?" kind="choice"/>
+        </region>
+      </subvertex>
+      <subvertex xmi:type="uml:State" xmi:id="_mgt5MOZnEeOeqbx8NusadA" name="Scanning">
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_OnouwOZoEeOeqbx8NusadA" name="ScanningEntryPoint" kind="entryPoint"/>
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_PoOCAOZoEeOeqbx8NusadA" name="ScanningExitPoint" kind="exitPoint"/>
+        <region xmi:type="uml:Region" xmi:id="_Onj2QOZoEeOeqbx8NusadA" name="Region0">
+          <transition xmi:type="uml:Transition" xmi:id="_j4c5oOZrEeOeqbx8NusadA" name="ScanStarted" source="_OnouwOZoEeOeqbx8NusadA" target="_QOY0sOZpEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_kSOrkOZrEeOeqbx8NusadA" name="ScanOfLowerPriceFinished" source="_QOY0sOZpEeOeqbx8NusadA" target="_Vn4B4OZpEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_kqVCgOZrEeOeqbx8NusadA" name="ScanFinished" source="_Vn4B4OZpEeOeqbx8NusadA" target="_PoOCAOZoEeOeqbx8NusadA"/>
+          <subvertex xmi:type="uml:State" xmi:id="_QOY0sOZpEeOeqbx8NusadA" name="ScanningLowerPrice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_Vn4B4OZpEeOeqbx8NusadA" name="ScanningHigherPrice"/>
+        </region>
       </subvertex>
     </region>
   </packagedElement>
-  <packagedElement xmi:type="uml:Activity" xmi:id="_JojQ8OXsEeOPOLDFEeJJFQ" name="Activity1"/>
 </uml:Model>

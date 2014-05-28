@@ -1,6 +1,6 @@
 package net.clomagno.moneymaker.agents;
 
-import net.clomagno.moneymaker.behaviours.SimpleTraderBehaviour;
+import net.clomagno.moneymaker.behaviours.simpletraderbehaviour.SimpleTraderBehaviour;
 import net.clomagno.moneymaker.connections.DummyTradingConnection;
 import net.clomagno.moneymaker.connections.TradingConnection;
 import jade.core.Agent;
