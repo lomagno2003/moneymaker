@@ -1,27 +1,65 @@
 package net.clomagno.moneymaker.connections;
 
 public abstract class TradingConnection {
-	public final Double getLowerPrice(String currencyFrom, String currencyTo) throws Exception{
-		return getLowerPriceImpl(currencyFrom, currencyTo);
-	};
-
-	public final Double getHigherPrice(String currencyFrom, String currencyTo) throws Exception{
-		return getHigherPriceImpl(currencyFrom, currencyTo);
-	};
+	private String baseCurrency;
 	
-	public final Double getBalance(String currency) throws Exception{
-		return getBalanceImpl(currency);
+	private String secondaryCurrency;
+	
+	public String getBaseCurrency() {
+		return baseCurrency;
 	}
-	
-	public final void makeBid(Double amount, String currencyFrom, Double price, String currencyTo) throws Exception{
-		makeBidImpl(amount, currencyFrom, price, currencyTo);
+
+	public void setBaseCurrency(String baseCurrency) {
+		this.baseCurrency = baseCurrency;
+	}
+
+	public String getSecondaryCurrency() {
+		return secondaryCurrency;
+	}
+
+	public void setSecondaryCurrency(String secondaryCurrency) {
+		this.secondaryCurrency = secondaryCurrency;
+	}
+
+	public final Double getLowerPrice() throws Exception{
+		return getLowerPriceImpl();
 	};
 
-	protected abstract Double getLowerPriceImpl(String currencyFrom, String currencyTo) throws Exception;
+	public final Double getHigherPrice() throws Exception{
+		return getHigherPriceImpl();
+	};
+	
+	public final Double getBaseBalance() throws Exception{
+		return getBaseBalanceImpl();
+	}
 
-	protected abstract Double getHigherPriceImpl(String currencyFrom, String currencyTo) throws Exception;
+	public final Double getSecondaryBalance() throws Exception{
+		return getSecondaryBalanceImpl();
+	}
+
+	public final void makeBid(Double amount, Double price) throws Exception{
+		makeBidImpl(amount, price);
+	};
+
+	public final void askForBid(Double amount, Double price) throws Exception{
+		askForBidImpl(amount, price);
+	};
 	
-	protected abstract Double getBalanceImpl(String criptocoinType) throws Exception;
+	public final void cancelOrders() throws Exception{
+		cancelOrdersImpl();
+	}
+
+	protected abstract Double getLowerPriceImpl() throws Exception;
+
+	protected abstract Double getHigherPriceImpl() throws Exception;
 	
-	protected abstract void makeBidImpl(Double amount, String currencyFrom, Double price, String currencyTo) throws Exception;
+	protected abstract Double getBaseBalanceImpl() throws Exception;
+	
+	protected abstract Double getSecondaryBalanceImpl() throws Exception;
+	
+	protected abstract void makeBidImpl(Double amount, Double price) throws Exception;
+
+	protected abstract void askForBidImpl(Double amount, Double price) throws Exception;
+	
+	protected abstract void cancelOrdersImpl() throws Exception;
 }

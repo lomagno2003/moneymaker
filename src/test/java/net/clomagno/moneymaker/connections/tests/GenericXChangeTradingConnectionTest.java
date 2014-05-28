@@ -20,27 +20,26 @@ public abstract class GenericXChangeTradingConnectionTest {
 	
 	@Test
 	public void testGetLowerPriceImpl() throws Exception {
-		Double lowerPrice = connection.getLowerPrice(Currencies.BTC, Currencies.USD);
+		Double lowerPrice = connection.getLowerPrice();
+		assertTrue("The lower price is: " + lowerPrice, true);
 	}
 
 	@Test
-	public void testGetHigherPriceImpl() {
-		fail("Not yet implemented");
+	public void testGetHigherPriceImpl() throws Exception {
+		Double higherPrice = connection.getHigherPrice();
+		assertTrue("The lower price is: " + higherPrice, true);
 	}
 
 	@Test
 	public void testGetBalanceImpl() throws Exception {
-		Double balance = connection.getLowerPrice(Currencies.BTC, Currencies.USD);
+		Double balance = connection.getBaseBalance();
+		
+		System.out.println("The balance is: " + balance);
 	}
-
+	
 	@Test
-	public void testSendBuyImpl() {
-		fail("Not yet implemented");
+	public void testAskForBid() throws Exception {
+		connection.askForBid(0.0d, 0.0d);
+		connection.cancelOrders();
 	}
-
-	@Test
-	public void testSendSellImpl() {
-		fail("Not yet implemented");
-	}
-
 }
