@@ -57,7 +57,7 @@ public abstract class GenericXChangeTradingConnection extends TradingConnection{
 	}
 
 	@Override
-	protected void placeOrderImpl(Double amount, String cryptocoinType,
+	protected void makeBidImpl(Double amount, String cryptocoinType,
 			Double price, String currencyType)  throws Exception{
 		PollingTradeService tradeService = exchange.getPollingTradeService();
 		

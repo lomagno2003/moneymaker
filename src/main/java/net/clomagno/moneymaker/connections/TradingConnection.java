@@ -5,7 +5,7 @@ public abstract class TradingConnection {
 		return getLowerPriceImpl(currencyFrom, currencyTo);
 	};
 
-	public Double getHigherPrice(String currencyFrom, String currencyTo) throws Exception{
+	public final Double getHigherPrice(String currencyFrom, String currencyTo) throws Exception{
 		return getHigherPriceImpl(currencyFrom, currencyTo);
 	};
 	
@@ -13,8 +13,8 @@ public abstract class TradingConnection {
 		return getBalanceImpl(currency);
 	}
 	
-	public void sendBuyRequest(Double amount, String currencyFrom, Double price, String currencyTo) throws Exception{
-		placeOrderImpl(amount, currencyFrom, price, currencyTo);
+	public final void makeBid(Double amount, String currencyFrom, Double price, String currencyTo) throws Exception{
+		makeBidImpl(amount, currencyFrom, price, currencyTo);
 	};
 
 	protected abstract Double getLowerPriceImpl(String currencyFrom, String currencyTo) throws Exception;
@@ -23,5 +23,5 @@ public abstract class TradingConnection {
 	
 	protected abstract Double getBalanceImpl(String criptocoinType) throws Exception;
 	
-	protected abstract void placeOrderImpl(Double amount, String currencyFrom, Double price, String currencyTo) throws Exception;
+	protected abstract void makeBidImpl(Double amount, String currencyFrom, Double price, String currencyTo) throws Exception;
 }
