@@ -8,7 +8,8 @@ public class ScanningBehaviour extends FSMBehaviour{
 	private static final String STATE_SCANNING_LOWER_PRICE = "scanningLowerPrice";
 	private static final String STATE_SCANNING_HIGHER_PRICE = "scanningHigherPrice";
 	
-	public void setup(){
+	@Override
+	public void onStart(){
 		//Initialization of states
 		Behaviour scanningLowerPriceBehaviour = new ScanningLowerPriceBehaviour();
 		Behaviour scanningHigherPriceBehaviour = new ScanningHigherPriceBehaviour();

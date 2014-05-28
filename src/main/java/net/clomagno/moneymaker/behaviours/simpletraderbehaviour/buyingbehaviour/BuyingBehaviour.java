@@ -8,7 +8,8 @@ public class BuyingBehaviour extends FSMBehaviour{
 	private static final String STATE_SENDING_BUY_REQUEST = "sendingBuyRequest";
 	private static final String STATE_WAITING_BUY_CONFIRM = "waitingBuyConfirm";
 	
-	public void setup(){
+	@Override
+	public void onStart(){
 		//Initialization of states
 		Behaviour sendingBuyRequestBehaviour = new SendingBuyRequestBehaviour();
 		Behaviour waitingBuyConfirmBehaviour = new WaitingBuyConfirmBehaviour();

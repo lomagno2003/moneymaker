@@ -8,7 +8,8 @@ public class SellingBehaviour extends FSMBehaviour{
 	private static final String STATE_SENDING_SELL_REQUEST = "sendingSellRequest";
 	private static final String STATE_WAITING_SELL_CONFIRM = "waitingSellConfirm";
 	
-	public void setup(){
+	@Override
+	public void onStart(){
 		//Initialization of states
 		Behaviour sendingSellRequestBehaviour = new SendingSellRequestBehaviour();
 		Behaviour waitingSellConfirmBehaviour = new WaitingSellConfirmBehaviour();

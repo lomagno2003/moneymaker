@@ -12,7 +12,8 @@ public class SimpleTraderBehaviour extends FSMBehaviour{
 	private static final String STATE_BUYING = "buying";
 	private static final String STATE_SCANNING = "scanning";
 
-	public void setup(){
+	@Override
+	public void onStart(){
 		//Initialization of states
 		Behaviour buyingBehaviour = new BuyingBehaviour();
 		Behaviour sellingBehaviour = new SellingBehaviour();
