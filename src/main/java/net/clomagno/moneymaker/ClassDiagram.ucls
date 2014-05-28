@@ -23,7 +23,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <interface id="3" language="java" name="net.clomagno.moneymaker.connections.TradingConnection" 
+  <class id="3" language="java" name="net.clomagno.moneymaker.connections.TradingConnection" 
     project="net.clomagno.moneymaker" 
     file="/net.clomagno.moneymaker/src/main/java/net/clomagno/moneymaker/connections/TradingConnection.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -33,14 +33,14 @@
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </interface>  
+  </class>  
   <nesting id="4">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="2"/>  
+    <end type="TARGET" refId="1"/>  
   </nesting>  
   <nesting id="5">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
+    <end type="TARGET" refId="2"/>  
   </nesting>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    

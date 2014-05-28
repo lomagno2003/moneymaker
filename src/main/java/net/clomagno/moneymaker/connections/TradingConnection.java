@@ -1,45 +1,27 @@
 package net.clomagno.moneymaker.connections;
 
 public abstract class TradingConnection {
-	/**
-	 *	Enum declarations
-	 */
-	public enum CryptocoinType{
-		BTC,
-		LiteCoin
-	}
-	
-	public enum CurrencyType{
-		Dollars,
-		Euros
-	}
-	
-	/** 
-	 * 	Implementation of methods using template method pattern
-	 * 
-	 */
-	
-	public final Double getLowerPrice(CryptocoinType criptocoinType){
-		return getLowerPriceImpl(criptocoinType);
+	public final Double getLowerPrice(String currencyFrom, String currencyTo) throws Exception{
+		return getLowerPriceImpl(currencyFrom, currencyTo);
 	};
-		
-	public Double getHigherPrice(CryptocoinType criptocoinType){
-		return getHigherPriceImpl(criptocoinType);
-	};
-	
-	public void buy(Double amount, CryptocoinType cryptocoinType, Double price, CurrencyType currencyType){
-		buyImpl(amount, cryptocoinType, price, currencyType);
-	};
-	
-	public void sell(Double amount, CryptocoinType cryptocoinType, Double price, CurrencyType currencyType){
-		sellImpl(amount, cryptocoinType, price, currencyType);
-	};
-	
-	protected abstract Double getLowerPriceImpl(CryptocoinType criptocoinType);
 
-	protected abstract Double getHigherPriceImpl(CryptocoinType criptocoinType);
+	public Double getHigherPrice(String currencyFrom, String currencyTo) throws Exception{
+		return getHigherPriceImpl(currencyFrom, currencyTo);
+	};
 	
-	protected abstract void buyImpl(Double amount, CryptocoinType cryptocoinType, Double price, CurrencyType currencyType);
+	public final Double getBalance(String currency) throws Exception{
+		return getBalanceImpl(currency);
+	}
 	
-	protected abstract void sellImpl(Double amount, CryptocoinType cryptocoinType, Double price, CurrencyType currencyType);
+	public void sendBuyRequest(Double amount, String currencyFrom, Double price, String currencyTo) throws Exception{
+		placeOrderImpl(amount, currencyFrom, price, currencyTo);
+	};
+
+	protected abstract Double getLowerPriceImpl(String currencyFrom, String currencyTo) throws Exception;
+
+	protected abstract Double getHigherPriceImpl(String currencyFrom, String currencyTo) throws Exception;
+	
+	protected abstract Double getBalanceImpl(String criptocoinType) throws Exception;
+	
+	protected abstract void placeOrderImpl(Double amount, String currencyFrom, Double price, String currencyTo) throws Exception;
 }

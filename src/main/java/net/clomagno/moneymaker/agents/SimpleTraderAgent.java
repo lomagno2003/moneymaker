@@ -1,7 +1,6 @@
 package net.clomagno.moneymaker.agents;
 
 import net.clomagno.moneymaker.behaviours.simpletraderbehaviour.SimpleTraderBehaviour;
-import net.clomagno.moneymaker.connections.DummyTradingConnection;
 import net.clomagno.moneymaker.connections.TradingConnection;
 import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
@@ -21,7 +20,7 @@ public class SimpleTraderAgent extends Agent {
 	protected void setup() {
 		super.setup();
 		
-		dataStore.put(MM_TRADING_CONNECTION, new DummyTradingConnection());
+		dataStore.put(MM_TRADING_CONNECTION, null);
 		
 		Behaviour behaviour=new SimpleTraderBehaviour();
 		behaviour.setDataStore(dataStore);

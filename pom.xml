@@ -6,11 +6,43 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>net.clomagno.moneymaker</name>
 
+	<properties>
+		<xchange.version>2.0.0</xchange.version>
+	</properties>
+
 	<dependencies>
+		<!-- Loggin dependencies -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+
+		<!-- JADE dependencies -->
 		<dependency>
 			<groupId>net.sf.ingenias</groupId>
 			<artifactId>jade</artifactId>
 			<version>4.2</version>
 		</dependency>
+
+		<!-- xchange dependencies -->
+		<dependency>
+			<groupId>com.xeiam.xchange</groupId>
+			<artifactId>xchange-core</artifactId>
+			<version>${xchange.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.xeiam.xchange</groupId>
+			<artifactId>xchange-btce</artifactId>
+			<version>${xchange.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.xeiam.xchange</groupId>
+			<artifactId>xchange-bitfinex</artifactId>
+			<version>${xchange.version}</version>
+		</dependency>
+
 	</dependencies>
 </project>
