@@ -19,10 +19,17 @@ public class SellingBehaviour extends FSMBehaviour{
 		waitingSellConfirmBehaviour.setDataStore(getDataStore());
 		
 		//Register of states
-		registerState(sendingSellRequestBehaviour, STATE_SENDING_SELL_REQUEST);
-		registerState(waitingSellConfirmBehaviour, STATE_WAITING_SELL_CONFIRM);
+		registerFirstState(sendingSellRequestBehaviour, STATE_SENDING_SELL_REQUEST);
+		registerLastState(waitingSellConfirmBehaviour, STATE_WAITING_SELL_CONFIRM);
 		
 		//Register of transitions
+		registerDefaultTransition(STATE_SENDING_SELL_REQUEST, STATE_WAITING_SELL_CONFIRM);
 		registerTransition(STATE_WAITING_SELL_CONFIRM, STATE_SENDING_SELL_REQUEST, WaitingSellConfirmBehaviour.EVENT_CONFIRM_FAILED);
+	}
+	
+	@Override
+	public int onEnd(){
+		restart();
+		return super.onEnd();
 	}
 }

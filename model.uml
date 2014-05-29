@@ -42,10 +42,12 @@
         <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_PoOCAOZoEeOeqbx8NusadA" name="ScanningExitPoint" kind="exitPoint"/>
         <region xmi:type="uml:Region" xmi:id="_Onj2QOZoEeOeqbx8NusadA" name="Region0">
           <transition xmi:type="uml:Transition" xmi:id="_j4c5oOZrEeOeqbx8NusadA" name="ScanStarted" source="_OnouwOZoEeOeqbx8NusadA" target="_QOY0sOZpEeOeqbx8NusadA"/>
-          <transition xmi:type="uml:Transition" xmi:id="_kSOrkOZrEeOeqbx8NusadA" name="ScanOfLowerPriceFinished" source="_QOY0sOZpEeOeqbx8NusadA" target="_Vn4B4OZpEeOeqbx8NusadA"/>
-          <transition xmi:type="uml:Transition" xmi:id="_kqVCgOZrEeOeqbx8NusadA" name="ScanFinished" source="_Vn4B4OZpEeOeqbx8NusadA" target="_PoOCAOZoEeOeqbx8NusadA"/>
-          <subvertex xmi:type="uml:State" xmi:id="_QOY0sOZpEeOeqbx8NusadA" name="ScanningLowerPrice"/>
-          <subvertex xmi:type="uml:State" xmi:id="_Vn4B4OZpEeOeqbx8NusadA" name="ScanningHigherPrice"/>
+          <transition xmi:type="uml:Transition" xmi:id="_kSOrkOZrEeOeqbx8NusadA" name="ScanOfBoundPricesFinished" source="_QOY0sOZpEeOeqbx8NusadA" target="_Vn4B4OZpEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_kqVCgOZrEeOeqbx8NusadA" name="ScanOfHigherPriceFinished" source="_Vn4B4OZpEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_PeWgAOdHEeOpY7Ly37tmKQ" name="ScanFinished" target="_PoOCAOZoEeOeqbx8NusadA"/>
+          <transition xmi:type="uml:Transition" xmi:id="_eRXoYOdHEeOpY7Ly37tmKQ" name="ScanFinished" source="_Vn4B4OZpEeOeqbx8NusadA" target="_PoOCAOZoEeOeqbx8NusadA"/>
+          <subvertex xmi:type="uml:State" xmi:id="_QOY0sOZpEeOeqbx8NusadA" name="ScanningBoundPrices"/>
+          <subvertex xmi:type="uml:State" xmi:id="_Vn4B4OZpEeOeqbx8NusadA" name="ScanningBalances"/>
         </region>
       </subvertex>
     </region>

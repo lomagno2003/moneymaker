@@ -1,13 +1,13 @@
 package net.clomagno.moneymaker.connections;
 
 public class DummyTradingConnection extends TradingConnection{
-	private Double lower;
+	private Double lower = 1d;
 	
-	private Double higher;
+	private Double higher = 2d;
 	
-	private Double baseBalance;
+	private Double baseBalance = 100d;
 	
-	private Double secondaryBalance;
+	private Double secondaryBalance = 50d;
 
 	@Override
 	protected Double getLowerPriceImpl() throws Exception {

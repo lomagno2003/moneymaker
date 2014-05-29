@@ -16,13 +16,20 @@ public class BuyingBehaviour extends FSMBehaviour{
 		
 		//Configuration of the states
 		sendingBuyRequestBehaviour.setDataStore(getDataStore());
-		sendingBuyRequestBehaviour.setDataStore(getDataStore());
+		waitingBuyConfirmBehaviour.setDataStore(getDataStore());
 		
 		//Register of states
-		registerState(sendingBuyRequestBehaviour, STATE_SENDING_BUY_REQUEST);
-		registerState(waitingBuyConfirmBehaviour, STATE_WAITING_BUY_CONFIRM);
+		registerFirstState(sendingBuyRequestBehaviour, STATE_SENDING_BUY_REQUEST);
+		registerLastState(waitingBuyConfirmBehaviour, STATE_WAITING_BUY_CONFIRM);
 		
 		//Register of transitions
+		registerDefaultTransition(STATE_SENDING_BUY_REQUEST, STATE_WAITING_BUY_CONFIRM);
 		registerTransition(STATE_WAITING_BUY_CONFIRM, STATE_SENDING_BUY_REQUEST, WaitingBuyConfirmBehaviour.EVENT_CONFIRM_FAILED);
+	}
+	
+	@Override
+	public int onEnd(){
+		restart();
+		return super.onEnd();
 	}
 }

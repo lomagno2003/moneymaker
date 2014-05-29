@@ -1,37 +1,46 @@
 package net.clomagno.moneymaker.behaviours.simpletraderbehaviour;
 
+import org.apache.log4j.Logger;
+
 import net.clomagno.moneymaker.behaviours.simpletraderbehaviour.buyingbehaviour.BuyingBehaviour;
 import net.clomagno.moneymaker.behaviours.simpletraderbehaviour.scanningbehaviour.ScanningBehaviour;
 import net.clomagno.moneymaker.behaviours.simpletraderbehaviour.sellingbehaviour.SellingBehaviour;
 import jade.core.behaviours.Behaviour;
 import jade.core.behaviours.FSMBehaviour;
+import jade.core.behaviours.OneShotBehaviour;
+import jade.core.behaviours.SequentialBehaviour;
 
-public class SimpleTraderBehaviour extends FSMBehaviour{
+public class SimpleTraderBehaviour extends SequentialBehaviour {
 	private static final long serialVersionUID = 4934131284427906093L;
-	private static final String STATE_SELLING = "selling";
-	private static final String STATE_BUYING = "buying";
-	private static final String STATE_SCANNING = "scanning";
+
+	private static final Logger log = Logger
+			.getLogger(SimpleTraderBehaviour.class.getName());
 
 	@Override
-	public void onStart(){
-		//Initialization of states
+	public void onStart() {
+		log.info("Trader behaviour initializaton started");
+		// Initialization of states
 		Behaviour buyingBehaviour = new BuyingBehaviour();
 		Behaviour sellingBehaviour = new SellingBehaviour();
 		Behaviour scanningBehaviour = new ScanningBehaviour();
-		
-		//Configuration of the states
+
+		// Configuration of the states
 		buyingBehaviour.setDataStore(getDataStore());
 		sellingBehaviour.setDataStore(getDataStore());
 		scanningBehaviour.setDataStore(getDataStore());
-		
-		//Register of states
-		registerState(buyingBehaviour, STATE_BUYING);
-		registerState(sellingBehaviour, STATE_SELLING);
-		registerState(scanningBehaviour, STATE_SCANNING);
-		
-		//Register of transitions
-		registerDefaultTransition(STATE_SCANNING, STATE_BUYING);
-		registerDefaultTransition(STATE_BUYING, STATE_SELLING);
-		registerDefaultTransition(STATE_SELLING, STATE_SCANNING);
+
+		// Register of states
+		addSubBehaviour(scanningBehaviour);
+		addSubBehaviour(buyingBehaviour);
+		addSubBehaviour(sellingBehaviour);
+
+		log.info("Trader behaviour initializaton finished");
 	}
+
+	public int onEnd() {
+		reset();
+		myAgent.addBehaviour(this);
+		return super.onEnd();
+	}
+
 }

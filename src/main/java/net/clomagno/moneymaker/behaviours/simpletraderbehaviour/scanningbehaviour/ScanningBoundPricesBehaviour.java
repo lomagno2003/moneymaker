@@ -1,22 +1,28 @@
 package net.clomagno.moneymaker.behaviours.simpletraderbehaviour.scanningbehaviour;
 
+import org.apache.log4j.Logger;
+
 import net.clomagno.moneymaker.agents.SimpleTraderAgent;
 import net.clomagno.moneymaker.connections.TradingConnection;
 import jade.core.behaviours.Behaviour;
 
-public class ScanningHigherPriceBehaviour extends Behaviour {
+public class ScanningBoundPricesBehaviour extends Behaviour {
 	private static final long serialVersionUID = -546917214001740165L;
 	
-	private Boolean higherPriceScanned = false;
+	private static final Logger log = Logger.getLogger(ScanningBoundPricesBehaviour.class.getName());	
+	
+	private Boolean boundPricesScanned = false;
 	
 	@Override
 	public void action() {
+		log.info("Scanning bound prices");
 		try {
 			TradingConnection connection = (TradingConnection)getDataStore().get(SimpleTraderAgent.MM_TRADING_CONNECTION);
 		
 			getDataStore().put(SimpleTraderAgent.MM_HIGER_PRICE, connection.getHigherPrice());
+			getDataStore().put(SimpleTraderAgent.MM_LOWER_PRICE, connection.getLowerPrice());
 			
-			higherPriceScanned = true;
+			boundPricesScanned = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -24,7 +30,7 @@ public class ScanningHigherPriceBehaviour extends Behaviour {
 
 	@Override
 	public boolean done() {
-		return higherPriceScanned;
+		return boundPricesScanned;
 	}
 
 }
